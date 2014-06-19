@@ -19,30 +19,9 @@ import com.weibo.sdk.android.demo.adapter.APITpyeListAdapter;
 import com.weibo.sdk.android.net.RequestListener;
 
 public class APITypeListActivity extends ListActivity implements RequestListener{
-	private String[] apiArr = null;
-	public static String uid=null;
-
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_typelist);
-//		apiArr = getResources().getStringArray(R.array.api_types);
-		apiArr=getResources().getStringArray(R.array.examples);
-		APITpyeListAdapter adapter = new APITpyeListAdapter(getApplicationContext(), apiArr);
+	privatenew APITpyeListAdapter(getApplicationContext(), apiArr);
 		setListAdapter(adapter);
-	}
-
-	@Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		super.onListItemClick(l, v, position, id);
-//		Intent it = new Intent(this, APIMethodsListActivity.class);
-//		it.putExtra("api", apiArr[position].split(":")[1]);
-//		startActivity(it);
-		String title=apiArr[position];
-		if("发送微博".equals(title)){
-		    Intent it = new Intent(APITypeListActivity.this, ShareActivity.class);
-            it.putExtra(ShareActivity.EXTRA_ACCESS_TOKEN, WeiboActivity.accessToken.getToken());
-            it.putExtra(ShareActivity.EXTRA_EXPIRES_IN, WeiboActivity.accessToken.getExpiresTime());
+	}_EXPIRES_IN, WeiboActivity.accessToken.getExpiresTime());
             startActivity(it);
         }
         else if("获取关注好友微博".equals(title)){
